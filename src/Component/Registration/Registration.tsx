@@ -67,6 +67,7 @@ const Registration: React.FC = () => {
         storeUserInfo(registrationData?.data?.registration?.token);
         setTimeout(() => {
           navigate("/");
+          window.location.reload();
         }, 1500);
       }
       if (registrationData?.data?.registration?.userError) {

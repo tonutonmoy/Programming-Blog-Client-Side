@@ -3,6 +3,7 @@ import { removeFromLocalStorage } from "../../Utils/auth.helper";
 const LogoutButton = () => {
   const handler = () => {
     removeFromLocalStorage();
+    window.location.reload();
   };
   return (
     <button

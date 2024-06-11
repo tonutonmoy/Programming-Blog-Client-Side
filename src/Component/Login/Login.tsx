@@ -47,6 +47,7 @@ const Login: React.FC = () => {
 
       setTimeout(() => {
         navigate("/");
+        window.location.reload();
       }, 1500);
     }
     if (loginData?.data?.login?.userError) {
