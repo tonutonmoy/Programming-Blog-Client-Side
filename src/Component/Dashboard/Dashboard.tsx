@@ -1,10 +1,9 @@
-import { Outlet } from "react-router-dom";
+import SideBar from "../../SharedComponent/Sidebar/Sidebar";
 
 const Dashboard = () => {
   return (
     <div>
-      dashboard
-      <Outlet />
+      <SideBar></SideBar>
     </div>
   );
 };
