@@ -17,12 +17,18 @@ const BlogCard = ({ data, action, deleteHandler }: any) => {
   }
 
   return (
-    <div className="block space-x-0 lg:flex lg:space-x-6">
-      <div className="rounded w-full  p-4 lg:p-0">
-        <img src={data?.image} className="rounded" alt="Latest news 1" />
+    <div className="block space-x-0 lg:flex lg:space-x-6 ">
+      <div className="rounded w-full  p-4 lg:p-0 ">
+        <img
+          src={data?.image}
+          className="rounded h-[300px] w-full"
+          alt="Latest news 1"
+        />
         <section className="p-4 pl-0">
           <h2 className="font-bold text-2xl text-gray-800">{data?.title}</h2>
-          <p className="text-gray-700 mt-2">{data?.content.slice(0, 250)}</p>
+          <p className="text-gray-700 mt-2 h-[220px] md:h-[200px] lg:h-[110px] xl:h-[110px] 2xl:h-[100px]">
+            {data?.content.slice(0, 250)} ...
+          </p>
         </section>
         <section className=" flex  justify-around items-center">
           {action === "myBlogs" ? (
@@ -51,7 +57,7 @@ const BlogCard = ({ data, action, deleteHandler }: any) => {
         {action === "myBlogs" ? (
           <section className=" flex  justify-around items-center gap-10  md:gap-10   lg:gap-10  xl:gap-10  2xl:gap-20    my-10">
             <Link
-              to={`/blogDetails/${data?.id}`}
+              to={`/dashboard/updateBlog/${data?.id}`}
               className="w-full flex justify-center bg-green-400 hover:bg-green-500 text-gray-100 p-3 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500"
             >
               {" "}

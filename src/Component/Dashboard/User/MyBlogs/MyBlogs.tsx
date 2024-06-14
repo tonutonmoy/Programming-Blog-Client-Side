@@ -21,7 +21,7 @@ const MyBlogsGQL = gql`
 `;
 
 const DeleteBlogGQL = gql`
-  mutation Mutation($postId: ID!) {
+  mutation DeletePost($postId: ID!) {
     deletePost(postId: $postId) {
       result {
         id

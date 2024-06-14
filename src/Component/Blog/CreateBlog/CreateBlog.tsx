@@ -10,7 +10,7 @@ import { gql, useMutation } from "@apollo/client";
 const addPostGQL = gql`
   mutation AddPost($post: PostInput!) {
     addPost(post: $post) {
-      post {
+      result {
         id
       }
       userError
@@ -46,14 +46,14 @@ const CreateBlog: React.FC = () => {
       const postData = await addPost({
         variables: { post: data },
       });
+      console.log(postData);
 
-      if (postData?.data?.addPost?.post) {
+      if (postData?.data?.addPost?.result?.id) {
         toast.success("blog created successfully");
       }
       if (postData?.data?.addPost?.userError) {
         toast.error(postData?.data?.addPost?.userError);
       }
-      console.log(data);
     }
   };
   return (
@@ -137,7 +137,7 @@ const CreateBlog: React.FC = () => {
                   type="submit"
                   className="w-full  flex justify-center bg-green-400 hover:bg-green-500 text-gray-100 p-3 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500"
                 >
-                  Sign up
+                  Add Blog
                 </button>
               </div>
             </form>
