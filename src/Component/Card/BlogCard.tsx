@@ -26,7 +26,7 @@ const BlogCard = ({ data, action, deleteHandler }: any) => {
         />
         <section className="p-4 pl-0">
           <h2 className="font-bold text-2xl text-gray-800">{data?.title}</h2>
-          <p className="text-gray-700 mt-2 h-[220px] md:h-[200px] lg:h-[110px] xl:h-[110px] 2xl:h-[100px]">
+          <p className="text-gray-700 mt-2 h-[220px] md:h-[200px] lg:h-[110px] xl:h-[120px] 2xl:h-[100px]">
             {data?.content.slice(0, 250)} ...
           </p>
         </section>

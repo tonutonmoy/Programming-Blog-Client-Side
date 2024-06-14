@@ -67,7 +67,7 @@ const CreateBlog: React.FC = () => {
       <div className="absolute bg-gradient-to-b from-green-500 to-green-400 opacity-0 md:opacity-75 lg:opacity-75 xl:opacity-75 2xl:opacity-75 md:inset-0 lg:inset-0 xl:inset-0 2xl:inset-0 z-0"></div>
       <div className="min-h-screen sm:flex sm:flex-row mx-0 justify-center">
         <div className="flex justify-center self-center z-10 w-full">
-          <div className="p-12 bg-white mx-auto rounded-2xl w-[100%] md:w-[70%] lg:w-[50%] xl:w-[50%] 2xl:w-[50%]  ">
+          <div className="p-12 bg-white mx-auto rounded-2xl w-[100%] md:w-[90%] lg:w-[90%] xl:w-[70%] 2xl:w-[60%]  ">
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="grid gap-6 mb-6 md:grid-cols-2">
                 <section className=" space-y-5">
