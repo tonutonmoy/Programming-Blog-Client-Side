@@ -1,6 +1,5 @@
 import { Outlet } from "react-router-dom";
 import SidebarAllLinks from "./SideBarLinks";
-import Container from "../Container";
 
 const Sidebar = () => {
   return (
@@ -8,10 +7,8 @@ const Sidebar = () => {
       <div className="drawer lg:drawer-open ">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content ">
-          <Container>
-            {" "}
-            <Outlet />
-          </Container>{" "}
+          {" "}
+          <Outlet />
           <label
             htmlFor="my-drawer-2"
             className="btn btn-primary drawer-button lg:hidden"

@@ -39,10 +39,14 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+import { Provider } from "react-redux";
+import { store } from "./Redux/store";
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <ApolloProvider client={client}>
-      <RouterProvider router={router} />
-    </ApolloProvider>
+    <Provider store={store}>
+      <ApolloProvider client={client}>
+        <RouterProvider router={router} />
+      </ApolloProvider>
+    </Provider>
   </React.StrictMode>
 );

@@ -3,6 +3,7 @@
 import { gql, useMutation, useQuery } from "@apollo/client";
 import BlogCard from "../../../Card/BlogCard";
 import { Toaster, toast } from "sonner";
+import Container from "../../../../SharedComponent/Container";
 
 const MyBlogsGQL = gql`
   query MyPosts {
@@ -63,17 +64,19 @@ const MyBlogs = () => {
   };
 
   return (
-    <section className=" grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 gap-20 my-20">
-      {data?.myPosts?.result?.map((a: any) => (
-        <BlogCard
-          key={a?.id}
-          data={a}
-          action="myBlogs"
-          deleteHandler={deleteHandler}
-        />
-      ))}
-      <Toaster position="top-right" />
-    </section>
+    <Container>
+      <section className=" grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 gap-20 my-20">
+        {data?.myPosts?.result?.map((a: any) => (
+          <BlogCard
+            key={a?.id}
+            data={a}
+            action="myBlogs"
+            deleteHandler={deleteHandler}
+          />
+        ))}
+        <Toaster position="top-right" />
+      </section>
+    </Container>
   );
 };
 

@@ -111,8 +111,8 @@ const Profile = () => {
                     <div className="relative">
                       <img
                         alt="..."
-                        src="https://demos.creative-tim.com/notus-js/assets/img/team-2-800x800.jpg"
-                        className="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px"
+                        src={data?.singleUser?.profile?.image}
+                        className="shadow-xl rounded-full h-[150px] w-[300px] align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px"
                       />
                     </div>
                   </div>
@@ -120,52 +120,53 @@ const Profile = () => {
                     <div className="py-6 px-3 mt-32 sm:mt-0">
                       <button
                         onClick={() => setModal(true)}
-                        className="bg-pink-500 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
+                        className="bg-pink-500 active:bg-pink-600  text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
                         type="button"
                       >
-                        Connect
+                        Edit Profile
                       </button>
                     </div>
                   </div>
                   <div className="w-full lg:w-4/12 px-4 lg:order-1"></div>
                 </div>
-                <div className="text-center mt-12">
-                  <h3 className="text-4xl font-semibold leading-normal mb-2 text-blueGray-700 ">
-                    {data?.singleUser?.name}
-                  </h3>
+                <section className="text-center mt-12">
+                  <div className="text-center mt-12">
+                    <section>
+                      <h3 className="text-4xl font-semibold leading-normal mb-2 text-blueGray-700">
+                        {data?.singleUser?.name}
+                      </h3>
+                      <div className="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
+                        <FontAwesomeIcon
+                          icon="envelope"
+                          className="mr-2 text-lg text-blueGray-400"
+                        />
+                        {data?.singleUser?.email}
+                      </div>
+                    </section>
 
-                  <section className=" space-y-2 ">
-                    <div className="text-sm  leading-normal mt-0 mb-2 text-blueGray-400 font-bold ">
-                      <FontAwesomeIcon
-                        icon="envelope"
-                        className="mr-2 text-lg text-blueGray-400"
-                      />
-                      {data?.singleUser?.email}
-                    </div>
-                    <div className="text-sm  leading-normal mt-0 mb-2 text-blueGray-400 font-bold ">
-                      <FontAwesomeIcon
-                        icon="city"
-                        className="mr-2 text-lg text-blueGray-400"
-                      />
-                      {data?.singleUser?.profile?.country}{" "}
-                    </div>
-                    <div className="text-sm  leading-normal mt-0 mb-2 text-blueGray-400 font-bold ">
-                      <FontAwesomeIcon
-                        icon="city"
-                        className="mr-2 text-lg text-blueGray-400"
-                      />
+                    <section className=" ">
+                      <div className="mb-2   text-blueGray-600 mt-10">
+                        <i className="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
+                        {data?.singleUser?.profile?.country}{" "}
+                      </div>
+                      <div className="mb-2  text-blueGray-600">
+                        <FontAwesomeIcon
+                          icon="city"
+                          className="mr-2 text-lg text-blueGray-400"
+                        />
 
-                      {data?.singleUser?.profile?.city}
-                    </div>
-                    <div className="text-sm  leading-normal mt-0 mb-2 text-blueGray-400 font-bold ">
-                      <FontAwesomeIcon
-                        icon="phone"
-                        className="mr-2 text-lg text-blueGray-400"
-                      />
-                      {data?.singleUser?.profile?.number}
-                    </div>
-                  </section>
-                </div>
+                        {data?.singleUser?.profile?.city}
+                      </div>
+                      <div className="mb-2   text-blueGray-600">
+                        <FontAwesomeIcon
+                          icon="phone"
+                          className="mr-2  text-lg text-blueGray-400"
+                        />
+                        {data?.singleUser?.profile?.number}
+                      </div>
+                    </section>
+                  </div>
+                </section>
                 <div className="mt-10 py-10 border-t border-blueGray-200 text-center">
                   <div className="flex flex-wrap justify-center">
                     <div className="w-full lg:w-9/12 px-4">

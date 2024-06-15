@@ -5,13 +5,19 @@ import { useForm } from "react-hook-form";
 import { gql, useMutation } from "@apollo/client";
 import { toast } from "sonner";
 import { cloudINary } from "../../../Utils/cloudinary";
+import { useAppSelector } from "../../../Redux/hooks";
 
 const UpdateProfileGQL = gql`
-  mutation UpdatePost($postId: ID!, $post: PostInput!) {
-    updatePost(postId: $postId, post: $post) {
+  mutation UpdateProfile($profile: ProfileInfo!, $user: UserInfo!) {
+    updateProfile(profile: $profile, user: $user) {
       userError
       result {
-        id
+        user {
+          id
+        }
+        profile {
+          id
+        }
       }
     }
   }
@@ -37,9 +43,9 @@ const ProfileModal = ({
 }: any) => {
   const [updateProfile] = useMutation(UpdateProfileGQL);
   const { register, handleSubmit } = useForm<FormValues>();
-  const onSubmit = async (formData: FormValues) => {
-    console.log(formData, "tonu");
+  const { profileRefetchFunction } = useAppSelector((state) => state.Profile);
 
+  const onSubmit = async (formData: FormValues) => {
     if (formData?.image.length > 0) {
       console.log("hoise");
       const image = await cloudINary(formData?.image[0]);
@@ -54,20 +60,25 @@ const ProfileModal = ({
       delete formData.image;
     }
 
-    console.log(formData, "from data");
+    const { name, ...othersFields } = formData;
 
     const updateData = await updateProfile({
-      variables: {},
+      variables: { user: { name }, profile: othersFields },
     });
 
-    console.log(updateData, "updatedata");
-
-    if (updateData?.data?.updatePost?.result?.id) {
-      toast.success("Blog updated successfully");
+    if (
+      updateData?.data?.updateProfile?.result?.profile?.id &&
+      updateData?.data?.updateProfile?.result?.user?.id
+    ) {
+      toast.success("Profile updated successfully");
+      setModal(false);
       refetch();
+
+      profileRefetchFunction();
     }
-    if (updateData?.data?.updatePost?.userError) {
-      toast.error(updateData?.data?.updatePost?.userError);
+    if (updateData?.data?.updateProfile?.userError) {
+      toast.error(updateData?.data?.updateProfile?.userError);
+      setModal(false);
     }
   };
   return (
@@ -197,24 +208,25 @@ const ProfileModal = ({
                 />
               </section>
             </section>
+
+            {/* Modal footer */}
+            <div className="flex items-center p-4 border-t border-gray-200 rounded-b md:p-5 dark:border-gray-600">
+              <button
+                data-modal-hide="static-modal"
+                type="submit"
+                className="px-5 py-2.5 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              >
+                I accept
+              </button>
+              <button
+                onClick={() => setModal(false)}
+                type="button"
+                className="px-5 py-2.5 ms-3 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:outline-none focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+              >
+                Decline
+              </button>
+            </div>
           </form>
-          {/* Modal footer */}
-          <div className="flex items-center p-4 border-t border-gray-200 rounded-b md:p-5 dark:border-gray-600">
-            <button
-              data-modal-hide="static-modal"
-              type="button"
-              className="px-5 py-2.5 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            >
-              I accept
-            </button>
-            <button
-              onClick={() => setModal(false)}
-              type="button"
-              className="px-5 py-2.5 ms-3 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:outline-none focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
-            >
-              Decline
-            </button>
-          </div>
         </div>
       </div>
     </div>
