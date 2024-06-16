@@ -14,7 +14,6 @@ export const profileSlice = createSlice({
   initialState,
   reducers: {
     profileRefetch: (state, action: PayloadAction<any>) => {
-      console.log(action, "action");
       state.profileRefetchFunction = action.payload;
     },
   },

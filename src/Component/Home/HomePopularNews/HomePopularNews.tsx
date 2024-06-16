@@ -16,7 +16,9 @@ const BlogsGQL = gql`
 `;
 
 const HomePopularNews = () => {
-  const { loading, error, data } = useQuery(BlogsGQL);
+  const { loading, error, data } = useQuery(BlogsGQL, {
+    fetchPolicy: "no-cache",
+  });
 
   if (loading) {
     return null;

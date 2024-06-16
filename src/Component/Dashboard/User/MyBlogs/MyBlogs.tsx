@@ -33,7 +33,10 @@ const DeleteBlogGQL = gql`
 `;
 
 const MyBlogs = () => {
-  const { loading, error, data, refetch } = useQuery(MyBlogsGQL);
+  const { loading, error, data, refetch } = useQuery(MyBlogsGQL, {
+    fetchPolicy: "no-cache",
+  });
+
   const [DeleteBlog] = useMutation(DeleteBlogGQL);
 
   if (loading) {

@@ -2,7 +2,7 @@ import moment from "moment";
 import { Link } from "react-router-dom";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-const BlogCard = ({ data, action, deleteHandler }: any) => {
+const BlogCard = ({ data, action, deleteHandler, publishedHandler }: any) => {
   const createdAt = data?.createdAt;
   console.log("Raw createdAt:", createdAt);
 
@@ -54,6 +54,18 @@ const BlogCard = ({ data, action, deleteHandler }: any) => {
             {formattedDate}
           </span>
         </section>
+
+        {action === "publishedBlogs" && (
+          <section className="mt-10 ">
+            <button
+              onClick={() => deleteHandler(data?.id)}
+              className="  w-full flex justify-center bg-red-500 hover:bg-red-700 text-gray-100 p-3 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500 "
+            >
+              Delete
+            </button>
+          </section>
+        )}
+
         {action === "myBlogs" ? (
           <section className=" flex  justify-around items-center gap-10  md:gap-10   lg:gap-10  xl:gap-10  2xl:gap-20    my-10">
             <Link
@@ -63,6 +75,26 @@ const BlogCard = ({ data, action, deleteHandler }: any) => {
               {" "}
               Edit
             </Link>
+
+            <button
+              onClick={() => deleteHandler(data?.id)}
+              className="w-full flex justify-center bg-red-500 hover:bg-red-700 text-gray-100 p-3 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500"
+            >
+              Delete
+            </button>
+          </section>
+        ) : (
+          ""
+        )}
+        {action === "requestedBlogs" ? (
+          <section className=" flex  justify-around items-center gap-10  md:gap-10   lg:gap-10  xl:gap-10  2xl:gap-20    my-10">
+            <button
+              onClick={() => publishedHandler(data?.id)}
+              className="w-full flex justify-center bg-green-400 hover:bg-green-500 text-gray-100 p-3 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500"
+            >
+              {" "}
+              Approve
+            </button>
 
             <button
               onClick={() => deleteHandler(data?.id)}
