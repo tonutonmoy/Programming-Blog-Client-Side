@@ -17,7 +17,7 @@ const BlogCard = ({ data, action, deleteHandler, publishedHandler }: any) => {
   }
 
   return (
-    <div className="block space-x-0 lg:flex lg:space-x-6 ">
+    <div className="block space-x-0 lg:flex lg:space-x-6 my-5 ">
       <div className="rounded w-full  p-4 lg:p-0 ">
         <img
           src={data?.image}
@@ -43,7 +43,7 @@ const BlogCard = ({ data, action, deleteHandler, publishedHandler }: any) => {
           ) : (
             <Link
               to={`/blogDetails/${data?.id}`}
-              className="block w-full py-2 rounded text-green-900 font-medium mt-2 ml-auto"
+              className="block w-full py-2 rounded text-green-400 hover:text-green-500 font-medium mt-2 ml-auto"
             >
               {" "}
               Read more{" "}

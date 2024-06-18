@@ -1,6 +1,26 @@
 import { Link } from "react-router-dom";
+import { gql, useQuery } from "@apollo/client";
+const SingleUserGQL = gql`
+  query SingleUser {
+    singleUser {
+      role
+    }
+  }
+`;
 
 const HomeBanner = () => {
+  const { loading, error, data } = useQuery(SingleUserGQL, {
+    fetchPolicy: "no-cache",
+  });
+
+  if (loading) {
+    return null;
+  }
+
+  if (error) {
+    console.error(error);
+  }
+
   return (
     <div className=" mt-12">
       {/* featured section */}
@@ -27,11 +47,14 @@ const HomeBanner = () => {
             regret. Stimulated discretion impossible admiration in particular
             conviction up.
           </p>
+
           <Link
-            to="/createBlog"
-            className="inline-block px-6 py-3 mt-2 rounded-md bg-green-700 text-gray-100"
+            to={
+              data?.singleUser?.role === "user" ? "/createBlog" : "/dashboard"
+            }
+            className=" w-[150px]  text-center inline-block bg-green-400 hover:bg-green-500 text-gray-100 px-5 py-3 rounded-md tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500"
           >
-            Create Blog
+            {data?.singleUser?.role === "user" ? "Create Blog" : "Dashboard"}
           </Link>
         </div>
 

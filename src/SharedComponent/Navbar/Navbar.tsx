@@ -8,9 +8,9 @@ import LoginAndLogout from "../LoginAndLogout/LoginAndLogout";
 
 const Navbar = () => {
   return (
-    <nav className="bg-gray-900 text-gray-100">
+    <nav className="bg-gradient-to-r from-green-500 to-green-400 text-gray-100">
       <Container>
-        <div className="navbar bg-gray-900 p-0">
+        <div className="navbar bg-green-700  p-0   bg-gradient-to-r from-green-500 to-green-400">
           <div className="navbar-start">
             <div className="dropdown">
               <div

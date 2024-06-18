@@ -14,6 +14,7 @@ import ManageUsers from "../Component/Dashboard/Admin/ManageUsers/ManageUsers";
 import PublishedBlogs from "../Component/Dashboard/Admin/PublishedBlogs/PublishedBlogs";
 import RequestedBlogs from "../Component/Dashboard/Admin/RequestedBlogs/RequestedBlogs";
 import Profile from "../Component/Dashboard/Profile/Profile";
+import AllBlogs from "../Component/Blog/AllBlogs/AllBlogs";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      { path: "allBlogs", element: <AllBlogs /> },
       { path: "blogDetails/:id", element: <BlogDetails /> },
     ],
   },

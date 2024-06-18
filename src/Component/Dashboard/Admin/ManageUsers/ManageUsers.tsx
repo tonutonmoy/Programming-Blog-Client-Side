@@ -26,7 +26,9 @@ const UpdateUserRoleGQL = gql`
 `;
 
 const ManageUsers = () => {
-  const { loading, error, data, refetch } = useQuery(AllUsersGQL);
+  const { loading, error, data, refetch } = useQuery(AllUsersGQL, {
+    fetchPolicy: "no-cache",
+  });
   const [updateUserRole] = useMutation(UpdateUserRoleGQL);
 
   if (loading) {

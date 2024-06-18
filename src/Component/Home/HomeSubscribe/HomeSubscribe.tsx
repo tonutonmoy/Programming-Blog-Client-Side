@@ -19,7 +19,7 @@ const HomeSubscribe = () => {
             className="rounded bg-gray-100 px-4 py-2 border focus:border-green-400"
             placeholder="john@tech.com"
           />
-          <button className="px-4 py-2 rounded bg-green-800 text-gray-100">
+          <button className=" w-[100px]  text-center inline-block bg-green-400 hover:bg-green-500 text-gray-100 px-0 py-1 rounded-md tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500">
             Subscribe
             <i className="bx bx-right-arrow-alt"></i>
           </button>

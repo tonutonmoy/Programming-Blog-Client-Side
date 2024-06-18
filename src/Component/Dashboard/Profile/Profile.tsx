@@ -45,7 +45,9 @@ const SingleUserGQL = gql`
 
 const Profile = () => {
   const [modal, setModal] = useState(false);
-  const { loading, error, data, refetch } = useQuery(SingleUserGQL);
+  const { loading, error, data, refetch } = useQuery(SingleUserGQL, {
+    fetchPolicy: "no-cache",
+  });
 
   if (loading) {
     return null;
@@ -56,7 +58,7 @@ const Profile = () => {
     return null;
   }
 
-  console.log(data?.singleUser, "p");
+  console.log(data?.singleUser, "s");
   return (
     <>
       <link
