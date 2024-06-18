@@ -31,7 +31,7 @@ const HomePopularNews = () => {
 
   return (
     <>
-      <section className="flex mt-16 mb-4 px-4 lg:px-0 items-center justify-between">
+      <section className="flex mt-16 mb-4 px-4 lg:px-0 items-center justify-between ">
         <h2 className="font-bold text-3xl">Popular news</h2>
         <Link
           to="/allBlogs"
@@ -40,7 +40,7 @@ const HomePopularNews = () => {
           View all
         </Link>
       </section>
-      <section className=" grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 gap-10">
+      <section className=" grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 gap-10 mb-20">
         {data?.posts?.slice(0, 6)?.map((a: any) => (
           <BlogCard key={a?.id} data={a} />
         ))}
