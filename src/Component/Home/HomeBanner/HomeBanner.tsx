@@ -37,24 +37,24 @@ const HomeBanner = () => {
             Technology{" "}
           </span>
           <h1 className="text-gray-800 text-4xl font-bold mt-2 mb-2 leading-tight">
-            Ignorant branched humanity led now marianne too.
+            Exploring the Future of Programming
           </h1>
           <p className="text-gray-600 mb-4">
-            Necessary ye contented newspaper zealously breakfast he prevailed.
-            Melancholy middletons yet understood decisively boy law she. Answer
-            him easily are its barton little. Oh no though mother be things
-            simple itself. Oh be me, sure wise sons, no. Piqued ye of am spirit
-            regret. Stimulated discretion impossible admiration in particular
-            conviction up.
+            From object-oriented to functional programming, the field of
+            software development is vast and ever-changing. Explore the latest
+            trends in programming languages, development methodologies, and
+            cutting-edge technologies that are shaping the future of coding.
+            Whether you're a beginner or a seasoned developer, there's always
+            something new to learn.
           </p>
 
           <Link
             to={
-              data?.singleUser?.role === "user" ? "/createBlog" : "/dashboard"
+              data?.singleUser?.role === "admin" ? "/dashboard" : "/createBlog"
             }
             className=" w-[150px]  text-center inline-block bg-green-400 hover:bg-green-500 text-gray-100 px-5 py-3 rounded-md tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500"
           >
-            {data?.singleUser?.role === "user" ? "Create Blog" : "Dashboard"}
+            {data?.singleUser?.role === "admin" ? "Dashboard" : "Create Blog"}
           </Link>
         </div>
 

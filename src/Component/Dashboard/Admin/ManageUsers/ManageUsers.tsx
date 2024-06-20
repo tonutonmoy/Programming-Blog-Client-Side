@@ -90,47 +90,45 @@ const ManageUsers = () => {
               <tbody>
                 {data?.users?.map((project: any) => (
                   <tr key={project?.id}>
-                    <th className="border m-4  rounded-lg px-6 align-middle  text-xs whitespace-nowrap p-4 text-left flex items-center ">
+                    <th className="border m-4  rounded-lg px-6 align-middle  text-xs whitespace-nowrap p-4 text-left flex items-center w-[90%]  overflow-x-auto shadow-xl ">
                       <img
                         src={project?.profile?.image}
                         className="h-12 w-12 bg-white rounded-full border"
                         alt="..."
                       />
-                      <span className="ml-3 font-bold text-white">
+                      <span className="ml-3 w-full font-bold text-white block">
                         {project?.name}
                       </span>
                     </th>
                     <td>
-                      <p className="px-6 align-middle   text-sm whitespace-nowrap p-4  border m-4  rounded-lg ">
+                      <p className="px-6 align-middle   text-sm whitespace-nowrap p-4  border m-4  rounded-lg shadow-xl">
                         {project?.email}
                       </p>
                     </td>
                     <td>
-                      <p className="px-6 align-middle  text-center  text-sm whitespace-nowrap p-4  border m-4  rounded-lg">
+                      <p className="px-6 align-middle  text-center  text-sm whitespace-nowrap p-4  border m-4  rounded-lg shadow-xl">
                         {project?.role}
                       </p>
                     </td>
                     <td>
-                      {project?.role === "admin" && (
-                        <p className="px-6 align-middle flex justify-center    text-xs whitespace-nowrap p-4  border m-4  rounded-lg">
+                      <p className="px-6 align-middle flex justify-center    text-xs whitespace-nowrap p-4  border m-4  rounded-lg shadow-xl">
+                        {project?.role === "admin" && (
                           <button
                             onClick={() => roleHandler(project?.id, "user")}
                             className="w-[130px] flex justify-center bg-blue-400 hover:bg-blue-500 text-gray-100 p-3 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500"
                           >
                             Make user
                           </button>
-                        </p>
-                      )}
-                      {project?.role === "user" && (
-                        <p className="px-6 align-middle  flex justify-center  text-xs whitespace-nowrap p-4  border m-4  rounded-lg">
+                        )}
+                        {project?.role === "user" && (
                           <button
                             onClick={() => roleHandler(project?.id, "admin")}
                             className="w-[130px] flex justify-center bg-green-400 hover:bg-green-500 text-gray-100 p-3 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500"
                           >
                             Make Admin
                           </button>
-                        </p>
-                      )}
+                        )}
+                      </p>
                     </td>
                   </tr>
                 ))}

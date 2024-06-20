@@ -45,7 +45,7 @@ const BlogDetails = () => {
 
   return (
     <Container>
-      <section className="mt-10">
+      <section className="my-10 ">
         <div className="mb-4 md:mb-0 w-full mx-auto relative">
           <div className="px-4 lg:px-0">
             <h2 className="text-4xl font-semibold text-gray-800 leading-tight">
@@ -69,7 +69,7 @@ const BlogDetails = () => {
             <p className="pb-6">{data?.singlePost?.content}</p>
           </div>
 
-          <div className="w-full  xl:w-1/4  m-auto mt-12 max-w-screen-sm">
+          <div className="w-full  xl:w-1/4  m-auto mt-12 max-w-screen-sm  shadow-xl  ">
             <div className="p-4 border-t border-b md:border md:rounded">
               <section className="flex py-2">
                 <img
@@ -88,7 +88,7 @@ const BlogDetails = () => {
                   </p>
                 </div>
               </section>
-              <section className=" space-y-1 my-3">
+              <section className=" space-y-1 my-3 ">
                 <p className="text-gray-700  text-sm">
                   <span className=" font-[500] text-gray-700">Email:</span>{" "}
                   {data?.singlePost?.author?.email}
@@ -111,7 +111,7 @@ const BlogDetails = () => {
                 </p>
               </section>
 
-              <button className="px-2 py-1 text-gray-100 bg-green-700 flex w-full items-center justify-center rounded">
+              <button className="px-2 py-1 duration-500 text-gray-100 bg-green-400 hover:bg-green-500 flex w-full items-center justify-center rounded">
                 Follow
                 {/* Assuming you have an icon library like react-icons installed */}
                 <i className="bx bx-user-plus ml-2"></i>

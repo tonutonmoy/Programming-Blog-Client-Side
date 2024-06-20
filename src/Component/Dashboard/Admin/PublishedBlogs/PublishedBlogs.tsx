@@ -64,7 +64,7 @@ const PublishedBlogs = () => {
 
   return (
     <Container>
-      <section className=" grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 gap-20 my-20">
+      <section className=" grid md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-20 my-20">
         {data?.posts?.map((a: any) => (
           <BlogCard
             key={a?.id}
