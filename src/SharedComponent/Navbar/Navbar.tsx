@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
     <nav className="bg-gradient-to-r from-green-500 to-green-400 text-gray-100">
       <Container>
-        <div className="navbar   p-0   bg-gradient-to-r from-green-500 to-green-400">
+        <div className="navbar   p-0   bg-gradient-to-r from-green-500 to-green-400 ">
           <div className="navbar-start">
             <div className="dropdown">
               <div
@@ -35,7 +35,7 @@ const Navbar = () => {
               </div>
               <NavbarListForSmallDevice />
             </div>
-            <Link to="/" className="font-semibold text-xl">
+            <Link to="/" className="font-semibold text-xl  ">
               Programming-Blog
             </Link>
           </div>

@@ -52,7 +52,7 @@ const HomeBanner = () => {
             to={
               data?.singleUser?.role === "admin" ? "/dashboard" : "/createBlog"
             }
-            className=" w-[150px]  text-center inline-block bg-green-400 hover:bg-green-500 text-gray-100 px-5 py-3 rounded-md tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500"
+            className=" w-[150px]  text-center inline-block bg-green-400  rounded-full hover:bg-green-500 text-gray-100 px-5 py-3 tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500"
           >
             {data?.singleUser?.role === "admin" ? "Dashboard" : "Create Blog"}
           </Link>

@@ -111,7 +111,7 @@ const BlogDetails = () => {
                 </p>
               </section>
 
-              <button className="px-2 py-1 duration-500 text-gray-100 bg-green-400 hover:bg-green-500 flex w-full items-center justify-center rounded">
+              <button className="px-2 py-1 duration-500 text-gray-100 rounded-full bg-green-400 hover:bg-green-500 flex w-full items-center justify-center ">
                 Follow
                 {/* Assuming you have an icon library like react-icons installed */}
                 <i className="bx bx-user-plus ml-2"></i>

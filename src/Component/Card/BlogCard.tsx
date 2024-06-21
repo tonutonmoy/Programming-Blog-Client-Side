@@ -59,7 +59,7 @@ const BlogCard = ({ data, action, deleteHandler, publishedHandler }: any) => {
           <section className="mt-5 ">
             <button
               onClick={() => deleteHandler(data?.id)}
-              className="  w-full flex justify-center bg-red-500 hover:bg-red-700 text-gray-100 p-3 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500 "
+              className="  w-full flex justify-center bg-red-500 hover:bg-red-700 text-gray-100  rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500  py-2 px-5 "
             >
               Delete
             </button>
@@ -70,7 +70,7 @@ const BlogCard = ({ data, action, deleteHandler, publishedHandler }: any) => {
           <section className=" flex  justify-around items-center gap-10  md:gap-10   lg:gap-10  xl:gap-10  2xl:gap-20    mt-5">
             <Link
               to={`/dashboard/updateBlog/${data?.id}`}
-              className="w-full flex justify-center bg-green-400 hover:bg-green-500 text-gray-100 p-3 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500"
+              className="w-full flex justify-center bg-green-400 hover:bg-green-500 text-gray-100  rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500 py-2 px-5"
             >
               {" "}
               Edit
@@ -78,7 +78,7 @@ const BlogCard = ({ data, action, deleteHandler, publishedHandler }: any) => {
 
             <button
               onClick={() => deleteHandler(data?.id)}
-              className="w-full flex justify-center bg-red-500 hover:bg-red-700 text-gray-100 p-3 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500"
+              className="w-full flex justify-center bg-red-500 hover:bg-red-700 text-gray-100  rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500 py-2 px-5"
             >
               Delete
             </button>
@@ -90,7 +90,7 @@ const BlogCard = ({ data, action, deleteHandler, publishedHandler }: any) => {
           <section className=" flex  justify-around items-center gap-10  md:gap-10   lg:gap-10  xl:gap-10  2xl:gap-20    mt-5">
             <button
               onClick={() => publishedHandler(data?.id)}
-              className="w-full flex justify-center bg-green-400 hover:bg-green-500 text-gray-100 p-3 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500"
+              className="w-full flex justify-center bg-green-400 hover:bg-green-500 text-gray-100  rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500 py-2 px-5"
             >
               {" "}
               Approve
@@ -98,7 +98,7 @@ const BlogCard = ({ data, action, deleteHandler, publishedHandler }: any) => {
 
             <button
               onClick={() => deleteHandler(data?.id)}
-              className="w-full flex justify-center bg-red-500 hover:bg-red-700 text-gray-100 p-3 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500"
+              className="w-full flex justify-center bg-red-500 hover:bg-red-700 text-gray-100  rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500 py-2 px-5"
             >
               Delete
             </button>

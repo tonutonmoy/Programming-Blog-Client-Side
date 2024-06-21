@@ -97,7 +97,7 @@ const UpdateBlogs: React.FC = () => {
         <div className="absolute bg-gradient-to-b from-green-500 to-green-400 opacity-0 md:opacity-75 lg:opacity-75 xl:opacity-75 2xl:opacity-75 md:inset-0 lg:inset-0 xl:inset-0 2xl:inset-0 z-0"></div>
         <div className="min-h-screen sm:flex sm:flex-row mx-0 justify-center w-full">
           <div className="flex  justify-center self-center z-10 w-full">
-            <div className="p-12 bg-white mx-auto rounded-2xl w-[100%] md:w-[90%] lg:w-[90%] xl:w-[90%] 2xl:w-[90%]">
+            <div className="px-12 pt-12 pb-7 bg-white mx-auto rounded-2xl w-[100%] md:w-[90%] lg:w-[90%] xl:w-[90%] 2xl:w-[90%]">
               <form onSubmit={handleSubmit(onSubmit)}>
                 <section className="grid gap-6 mb-6 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2  my-10">
                   <section className="space-y-5">
@@ -157,7 +157,7 @@ const UpdateBlogs: React.FC = () => {
                 <section className="mt-20 ">
                   <button
                     type="submit"
-                    className="w-full flex justify-center bg-green-400 hover:bg-green-500 text-gray-100 p-3 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500"
+                    className="w-full md:w-[30%] mx-auto  flex justify-center bg-green-400 hover:bg-green-500 text-gray-100  rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500 py-2 px-5"
                   >
                     Update Blog
                   </button>

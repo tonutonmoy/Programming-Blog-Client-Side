@@ -114,7 +114,7 @@ const ProfileModal = ({
           </div>
           {/* Modal body */}
           <form onSubmit={handleSubmit(onSubmit)}>
-            <section className="h-[300px] md:h-[350px]   lg:h-full xl:h-full 2xl:h-full grid gap-6 mb-6  md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2  my-10 px-10  overflow-scroll md:overflow-hidden lg:overflow-hidden xl:overflow-hidden  2xl:overflow-hidden">
+            <section className="h-[300px] md:h-[350px]   lg:h-full xl:h-full 2xl:h-full grid gap-6 mb-6  md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2  my-10 px-10  overflow-scroll md:overflow-scroll lg:overflow-hidden xl:overflow-hidden  2xl:overflow-hidden">
               <section className="space-y-5">
                 <div>
                   <label
@@ -210,18 +210,18 @@ const ProfileModal = ({
             </section>
 
             {/* Modal footer */}
-            <div className="flex items-center p-4 border-t border-gray-200 rounded-b md:p-5 dark:border-gray-600">
+            <div className="flex items-center gap-5 justify-center p-4 border-t border-gray-200 rounded-b md:p-5 dark:border-gray-600">
               <button
                 data-modal-hide="static-modal"
                 type="submit"
-                className="px-5 py-2.5 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-2 px-5  rounded-full bg-green-400 hover:bg-green-500 duration-500 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none  cursor-pointer "
               >
                 I accept
               </button>
               <button
                 onClick={() => setModal(false)}
                 type="button"
-                className="px-5 py-2.5 ms-3 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:outline-none focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-2 px-5  rounded-full bg-red-500 hover:bg-red-600 duration-500 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none  cursor-pointer "
               >
                 Decline
               </button>
