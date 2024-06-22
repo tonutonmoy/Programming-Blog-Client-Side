@@ -6,11 +6,13 @@ import NavbarList from "./NavbarList";
 import NavbarImage from "./NavbarImage";
 import LoginAndLogout from "../LoginAndLogout/LoginAndLogout";
 
+import logo from "../../assets/logo/logo.png";
+
 const Navbar = () => {
   return (
-    <nav className="bg-gradient-to-r from-green-500 to-green-400 text-gray-100">
+    <nav className="bg-gradient-to-r from-green-500 to-green-400 text-gray-100  z-10 w-full ">
       <Container>
-        <div className="navbar   p-0   bg-gradient-to-r from-green-500 to-green-400 ">
+        <div className="navbar   p-0   bg-gradient-to-r from-green-500 to-green-400  ">
           <div className="navbar-start">
             <div className="dropdown">
               <div
@@ -35,8 +37,13 @@ const Navbar = () => {
               </div>
               <NavbarListForSmallDevice />
             </div>
-            <Link to="/" className="font-semibold text-xl  ">
-              Programming-Blog
+            <Link to="/" className="font-semibold text-xl  relative ">
+              {/* Programming-Blog */}
+              <img
+                className=" w-[400px] h-[20px]  md:w-[250px] md:h-[30px]  "
+                src={logo}
+                alt="logo"
+              />
             </Link>
           </div>
           <div className="navbar-center hidden lg:flex">

@@ -14,8 +14,6 @@ const SidebarAllLinks = () => {
   const { loading, error, data } = useQuery(SingleGQL);
   const location = useLocation();
 
-  console.log(location?.pathname, "location");
-
   if (loading) {
     return null;
   }

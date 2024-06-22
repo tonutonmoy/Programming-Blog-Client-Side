@@ -4,7 +4,6 @@ import Registration from "../Component/Registration/Registration";
 import Login from "../Component/Login/Login";
 import CreateBlog from "../Component/Blog/CreateBlog/CreateBlog";
 
-import Dashboard from "../Component/Dashboard/Dashboard";
 import HomeLayOut from "../Component/Home/HomeLayOut";
 import BlogDetails from "../Component/Blog/BlogDetails/BlogDetails";
 import PrivateRoute from "./PrivateRoute";
@@ -15,6 +14,8 @@ import PublishedBlogs from "../Component/Dashboard/Admin/PublishedBlogs/Publishe
 import RequestedBlogs from "../Component/Dashboard/Admin/RequestedBlogs/RequestedBlogs";
 import Profile from "../Component/Dashboard/Profile/Profile";
 import AllBlogs from "../Component/Blog/AllBlogs/AllBlogs";
+import DashboardLayout from "../Component/Dashboard/DashboardLayout";
+import Dashboard from "../Component/Dashboard/Dashboard";
 
 const router = createBrowserRouter([
   {
@@ -38,8 +39,16 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard />,
+    element: <DashboardLayout />,
     children: [
+      {
+        path: "dashboard",
+        element: (
+          <PrivateRoute>
+            <Dashboard />{" "}
+          </PrivateRoute>
+        ),
+      },
       {
         path: "profile",
         element: (

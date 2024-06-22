@@ -2,6 +2,7 @@
 import { Link } from "react-router-dom";
 import BlogCard from "../../Card/BlogCard";
 import { gql, useQuery } from "@apollo/client";
+import Loading from "../../../SharedComponent/Loading/Loading";
 
 const BlogsGQL = gql`
   query Posts {
@@ -21,7 +22,7 @@ const HomePopularNews = () => {
   });
 
   if (loading) {
-    return null;
+    return <Loading />;
   }
 
   if (error) {

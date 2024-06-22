@@ -4,6 +4,8 @@ import { gql, useMutation, useQuery } from "@apollo/client";
 import BlogCard from "../../../Card/BlogCard";
 import { Toaster, toast } from "sonner";
 import Container from "../../../../SharedComponent/Container";
+import Loading from "../../../../SharedComponent/Loading/Loading";
+import NotAvailable from "../../../../SharedComponent/NotAvailable/NotAvailable";
 
 const MyBlogsGQL = gql`
   query MyPosts {
@@ -40,15 +42,13 @@ const MyBlogs = () => {
   const [DeleteBlog] = useMutation(DeleteBlogGQL);
 
   if (loading) {
-    return null;
+    return <Loading />;
   }
 
   if (error) {
     console.error(error);
     return null;
   }
-
-  console.log(data?.myPosts?.result, "ll");
 
   const deleteHandler = async (postId: string) => {
     const deleteData = await DeleteBlog({
@@ -79,6 +79,7 @@ const MyBlogs = () => {
         ))}
         <Toaster position="top-right" />
       </section>
+      {data?.myPosts?.result?.length < 1 && <NotAvailable text="Blogs" />}
     </Container>
   );
 };

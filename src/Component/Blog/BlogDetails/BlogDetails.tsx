@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import Container from "../../../SharedComponent/Container";
 
 import { gql, useQuery } from "@apollo/client";
+import Loading from "../../../SharedComponent/Loading/Loading";
 
 const BlogDetailsGQL = gql`
   query SinglePost($postId: ID!) {
@@ -34,7 +35,7 @@ const BlogDetails = () => {
   });
 
   if (loading) {
-    return null;
+    return <Loading />;
   }
 
   if (error) {

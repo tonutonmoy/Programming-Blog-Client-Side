@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { gql, useMutation, useQuery } from "@apollo/client";
 import { Toaster, toast } from "sonner";
 import { cloudINary } from "../../../../Utils/cloudinary";
+import Loading from "../../../../SharedComponent/Loading/Loading";
 
 const BlogDetailsGQL = gql`
   query SinglePostDetails($postId: ID!) {
@@ -77,7 +78,7 @@ const UpdateBlogs: React.FC = () => {
   };
   // -------------------------
   if (loading) {
-    return <p>Loading...</p>;
+    return <Loading />;
   }
 
   if (error) {

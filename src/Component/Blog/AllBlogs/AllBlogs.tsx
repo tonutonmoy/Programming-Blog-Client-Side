@@ -4,6 +4,8 @@ import BlogCard from "../../Card/BlogCard";
 
 import { gql, useQuery } from "@apollo/client";
 import Container from "../../../SharedComponent/Container";
+import Loading from "../../../SharedComponent/Loading/Loading";
+import NotAvailable from "../../../SharedComponent/NotAvailable/NotAvailable";
 
 const BlogsGQL = gql`
   query Posts {
@@ -22,7 +24,7 @@ const AllBlogs = () => {
   });
 
   if (loading) {
-    return null;
+    return <Loading />;
   }
 
   if (error) {
@@ -37,6 +39,7 @@ const AllBlogs = () => {
           <BlogCard key={a?.id} data={a} />
         ))}
       </section>
+      {data?.posts?.length < 1 && <NotAvailable text="Blogs" />}
     </Container>
   );
 };

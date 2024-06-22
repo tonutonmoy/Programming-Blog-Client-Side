@@ -4,6 +4,8 @@ import { gql, useMutation, useQuery } from "@apollo/client";
 import BlogCard from "../../../Card/BlogCard";
 import { Toaster, toast } from "sonner";
 import Container from "../../../../SharedComponent/Container";
+import Loading from "../../../../SharedComponent/Loading/Loading";
+import NotAvailable from "../../../../SharedComponent/NotAvailable/NotAvailable";
 
 const BlogsGQL = gql`
   query Posts {
@@ -36,7 +38,7 @@ const PublishedBlogs = () => {
   const [DeleteBlog] = useMutation(DeleteBlogGQL);
 
   if (loading) {
-    return null;
+    return <Loading />;
   }
 
   if (error) {
@@ -75,6 +77,7 @@ const PublishedBlogs = () => {
         ))}
         <Toaster position="top-right" />
       </section>
+      {data?.posts?.length < 1 && <NotAvailable text="Published" />}
     </Container>
   );
 };

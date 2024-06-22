@@ -25,6 +25,7 @@ import { gql, useQuery } from "@apollo/client";
 import ProfileModal from "./ProfileModal";
 import { useState } from "react";
 import { Toaster } from "sonner";
+import Loading from "../../../SharedComponent/Loading/Loading";
 
 const SingleUserGQL = gql`
   query SingleUser {
@@ -50,7 +51,7 @@ const Profile = () => {
   });
 
   if (loading) {
-    return null;
+    return <Loading />;
   }
 
   if (error) {

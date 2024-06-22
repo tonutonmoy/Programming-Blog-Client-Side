@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { gql, useMutation, useQuery } from "@apollo/client";
 import { Toaster, toast } from "sonner";
+import Loading from "../../../../SharedComponent/Loading/Loading";
+import NotAvailable from "../../../../SharedComponent/NotAvailable/NotAvailable";
 const AllUsersGQL = gql`
   query Users {
     users {
@@ -32,22 +34,19 @@ const ManageUsers = () => {
   const [updateUserRole] = useMutation(UpdateUserRoleGQL);
 
   if (loading) {
-    return null;
+    return <Loading />;
   }
 
   if (error) {
     console.error(error);
     return null;
   }
-  console.log(data?.users);
 
   const roleHandler = async (userId: string, userRole: string) => {
     console.log(userId, userRole);
     const updateData = await updateUserRole({
       variables: { userId, userRole },
     });
-
-    console.log(updateData, "updatedata");
 
     if (updateData?.data?.updateUserRole?.result?.id) {
       toast.success("Role updated successfully");
@@ -59,7 +58,7 @@ const ManageUsers = () => {
   };
 
   return (
-    <section className="relative py-16 bg-blueGray-50">
+    <section className="relative py-16 bg-blueGray-50 ">
       <div className="w-full mb-12 px-4">
         <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-gray-700 text-white">
           <div className="rounded-t mb-0 px-4 py-3 border-0">
@@ -115,7 +114,7 @@ const ManageUsers = () => {
                         {project?.role === "admin" && (
                           <button
                             onClick={() => roleHandler(project?.id, "user")}
-                            className="w-[130px] flex justify-center bg-blue-400 hover:bg-blue-500 text-gray-100 p-3 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500"
+                            className="w-[110px] flex justify-center bg-blue-400 hover:bg-blue-500 text-gray-100  rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500 py-2 px-5"
                           >
                             Make user
                           </button>
@@ -123,7 +122,7 @@ const ManageUsers = () => {
                         {project?.role === "user" && (
                           <button
                             onClick={() => roleHandler(project?.id, "admin")}
-                            className="w-[130px] flex justify-center bg-green-400 hover:bg-green-500 text-gray-100 p-3 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500"
+                            className="w-[110px] flex justify-center bg-green-400 hover:bg-green-500 text-gray-100  rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500 py-2 px-5"
                           >
                             Make Admin
                           </button>
@@ -137,6 +136,7 @@ const ManageUsers = () => {
           </div>
         </div>
       </div>
+      {data?.users?.length < 1 && <NotAvailable text="Users" />}
       <Toaster position="top-right" />
     </section>
   );
