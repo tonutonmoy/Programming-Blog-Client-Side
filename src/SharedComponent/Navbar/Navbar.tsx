@@ -40,7 +40,7 @@ const Navbar = () => {
             <Link to="/" className="font-semibold text-xl  relative ">
               {/* Programming-Blog */}
               <img
-                className=" w-[400px] h-[20px]  md:w-[250px] md:h-[30px]  "
+                className=" w-[100px] h-[20px]  md:w-[250px] md:h-[30px]  "
                 src={logo}
                 alt="logo"
               />

@@ -23,8 +23,6 @@ const SidebarAllLinks = () => {
     return null;
   }
 
-  console.log(data?.singleUser?.role);
-
   return (
     <div>
       <ul className="menu p-4   w-52 md:w-80 lg:w-80  xl:w-80 2xl:w-80   min-h-full h-screen  bg-green-400 text-gray-50">

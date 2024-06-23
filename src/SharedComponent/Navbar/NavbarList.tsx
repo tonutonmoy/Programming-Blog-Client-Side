@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { getUserInfo } from "../../Utils/auth.helper";
 import { gql, useQuery } from "@apollo/client";
 
@@ -12,6 +12,7 @@ const SingleUserGQL = gql`
 
 const NavbarList = () => {
   const token = getUserInfo();
+  const location = useLocation();
   const { loading, error, data } = useQuery(SingleUserGQL, {
     fetchPolicy: "no-cache",
   });
@@ -29,8 +30,9 @@ const NavbarList = () => {
       <li>
         <Link
           to="/"
-          className="block py-2 px-3 text-gray-100 rounded hover:bg-gray-100 md:hover:bg-transparent  hover:text-gray-500 md:p-0 dark:text-white  dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-          aria-current="page"
+          className={`${
+            location?.pathname === "/" && "     text-gray-500 font-bold  "
+          } block py-2 px-3 text-gray-100  md:p-0  `}
         >
           Home
         </Link>
@@ -39,7 +41,10 @@ const NavbarList = () => {
       <li>
         <Link
           to="/allBlogs"
-          className="block py-2 px-3 text-gray-100rounded hover:bg-gray-100 md:hover:bg-transparent  md:p-0 hover:text-gray-500 dark:text-white  dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+          className={`${
+            location?.pathname === "/allBlogs" &&
+            "     text-gray-500 font-bold "
+          } block py-2 px-3 text-gray-100  md:p-0  `}
         >
           Blogs
         </Link>
@@ -48,7 +53,9 @@ const NavbarList = () => {
       <li>
         <Link
           to="/about"
-          className="block py-2 px-3 text-gray-100rounded hover:bg-gray-100 md:hover:bg-transparent  md:p-0 hover:text-gray-500 dark:text-white  dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+          className={`${
+            location?.pathname === "/about" && "     text-gray-500 font-bold "
+          } block py-2 px-3 text-gray-100  md:p-0  `}
         >
           About
         </Link>
@@ -59,7 +66,10 @@ const NavbarList = () => {
             <li>
               <Link
                 to="/createBlog"
-                className="block py-2 px-3 text-gray-100 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 hover:text-gray-500 dark:text-white  dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                className={`${
+                  location?.pathname === "/createBlog" &&
+                  "     text-gray-500 font-bold "
+                } block py-2 px-3 text-gray-100  md:p-0  `}
               >
                 Create Blog
               </Link>
@@ -69,7 +79,7 @@ const NavbarList = () => {
           <li>
             <Link
               to="/dashboard/dashboard"
-              className="block py-2 px-3 text-gray-100 rounded hover:bg-gray-100 md:hover:bg-transparent  hover:text-gray-500 md:p-0 dark:text-white  dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              className="block py-2 px-3 text-gray-100  md:p-0 "
             >
               Dashboard
             </Link>

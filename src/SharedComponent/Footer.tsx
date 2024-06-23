@@ -1,11 +1,19 @@
 import Container from "./Container";
+import logo from "../assets/logo/logo.png";
 
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-r from-green-400 to-green-500 text-white border-t pt-12 pb-32 px-4 lg:px-0">
       <Container>
         <div className="flex flex-wrap">
-          <div className="w-full lg:w-2/5">
+          <div className="w-full lg:w-2/5 space-y-10">
+            <div>
+              <img
+                className=" w-[100px] h-[20px]  md:w-[250px] md:h-[30px]  "
+                src={logo}
+                alt="logo"
+              />
+            </div>
             <p className="text-gray-100 hidden lg:block p-0 lg:pr-12">
               Boisterous he on understood attachment as entreaties ye
               devonshire. In mile an form snug were been sell. Extremely ham any
