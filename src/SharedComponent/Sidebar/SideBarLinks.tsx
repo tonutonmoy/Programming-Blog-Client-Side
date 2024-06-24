@@ -1,6 +1,14 @@
 import { Link, useLocation } from "react-router-dom";
-import LoginAndLogout from "../LoginAndLogout/LoginAndLogout";
 import { gql, useQuery } from "@apollo/client";
+import {
+  FaHome,
+  FaUser,
+  FaUsers,
+  FaFileAlt,
+  FaFileSignature,
+  FaBook,
+} from "react-icons/fa";
+import LoginAndLogout from "../LoginAndLogout/LoginAndLogout";
 
 const SingleGQL = gql`
   query SingleUser {
@@ -25,34 +33,36 @@ const SidebarAllLinks = () => {
 
   return (
     <div>
-      <ul className="menu p-4   w-52 md:w-80 lg:w-80  xl:w-80 2xl:w-80   min-h-full h-screen  bg-green-400 text-gray-50">
+      <ul className="menu p-4 w-52 md:w-80 lg:w-80 xl:w-80 2xl:w-80 min-h-full h-screen bg-green-400 ">
         <aside className="py-4 w-full md:block">
           <div className="sticky flex flex-col gap-2 p-4 text-sm border-r border-gray-100 top-12 rounded-md">
-            <>
-              <Link to="/" className="pl-3 mb-4 text-2xl font-semibold ">
-                Home
-              </Link>
-            </>
+            <Link
+              to="/"
+              className="pl-3 mb-4 text-2xl text-white  font-semibold flex items-center"
+            >
+              <FaHome className="mr-2 " /> Home
+            </Link>
+
             {data?.singleUser?.role === "user" && (
               <>
                 <Link
                   to="/dashboard/myBlogs"
-                  className={`flex items-center px-3 py-2.5 font-semibold ${
+                  className={`flex items-center text-white  px-3 py-2.5 font-semibold ${
                     location?.pathname === "/dashboard/myBlogs" &&
-                    "text-gray-100 bg-green-500 border rounded-full"
-                  }  `}
+                    " bg-green-500 border rounded-full"
+                  }`}
                 >
-                  My Blogs
+                  <FaBook className="mr-2 text-lg" /> My Blogs
                 </Link>
 
                 <Link
                   to="/dashboard/profile"
-                  className={`flex items-center px-3 py-2.5 font-semibold ${
+                  className={`flex items-center text-white  px-3 py-2.5 font-semibold ${
                     location?.pathname === "/dashboard/profile" &&
-                    "text-gray-100 bg-green-500 border rounded-full"
-                  }  `}
+                    " bg-green-500 border rounded-full"
+                  }`}
                 >
-                  Profile
+                  <FaUser className="mr-2 text-lg" /> Profile
                 </Link>
               </>
             )}
@@ -61,44 +71,47 @@ const SidebarAllLinks = () => {
               <>
                 <Link
                   to="/dashboard/manageUsers"
-                  className={`flex items-center px-3 py-2.5 font-semibold ${
+                  className={`flex items-center text-white  px-3 py-2.5 font-semibold ${
                     location?.pathname === "/dashboard/manageUsers" &&
-                    "text-gray-100 bg-green-500 border rounded-full"
-                  }  `}
+                    " bg-green-500 border rounded-full"
+                  }`}
                 >
-                  Manage Users
+                  <FaUsers className="mr-2 text-lg" /> Manage Users
                 </Link>
+
                 <Link
                   to="/dashboard/publishedBlogs"
-                  className={`flex items-center px-3 py-2.5 font-semibold ${
+                  className={`flex items-center text-white  px-3 py-2.5 font-semibold ${
                     location?.pathname === "/dashboard/publishedBlogs" &&
-                    "text-gray-100 bg-green-500 border rounded-full"
-                  }  `}
+                    " bg-green-500 border rounded-full"
+                  }`}
                 >
-                  Published Blogs
+                  <FaFileAlt className="mr-2 text-lg" /> Published Blogs
                 </Link>
+
                 <Link
                   to="/dashboard/RequestedBlogs"
-                  className={`flex items-center px-3 py-2.5 font-semibold ${
+                  className={`flex items-center text-white  px-3 py-2.5 font-semibold ${
                     location?.pathname === "/dashboard/RequestedBlogs" &&
-                    "text-gray-100 bg-green-500 border rounded-full"
-                  }  `}
+                    "t bg-green-500 border rounded-full"
+                  }`}
                 >
-                  Requested Blogs
+                  <FaFileSignature className="mr-2 text-lg" /> Requested Blogs
                 </Link>
+
                 <Link
                   to="/dashboard/profile"
-                  className={`flex items-center px-3 py-2.5 font-semibold ${
+                  className={`flex items-center px-3 text-white py-2.5 font-semibold ${
                     location?.pathname === "/dashboard/profile" &&
-                    "text-gray-100 bg-green-500 border rounded-full"
-                  }  `}
+                    " bg-green-500 border rounded-full"
+                  }`}
                 >
-                  Profile
+                  <FaUser className="mr-2 text-lg" /> Profile
                 </Link>
               </>
             )}
           </div>
-          <div className="  flex items-center px-10  pt-40 font-semibold">
+          <div className="flex items-center px-10 pt-40 font-semibold">
             <LoginAndLogout />
           </div>
         </aside>

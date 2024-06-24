@@ -23,7 +23,7 @@ const BlogCard = ({ data, action, deleteHandler, publishedHandler }: any) => {
         className="rounded h-[300px] w-full"
         alt="Latest news 1"
       />
-      <div className="rounded w-full  py-4   bg-white px-5">
+      <div className="py-4   bg-white px-5">
         <section className="pt-4  pl-0 ">
           <h2 className="font-bold text-2xl text-gray-800">{data?.title}</h2>
           <p className="text-gray-700 mt-2 h-[220px] md:h-[200px] lg:h-[110px] xl:h-[120px] 2xl:h-[100px]">
@@ -59,7 +59,7 @@ const BlogCard = ({ data, action, deleteHandler, publishedHandler }: any) => {
           <section className="mt-5 ">
             <button
               onClick={() => deleteHandler(data?.id)}
-              className="  w-full flex justify-center bg-red-500 hover:bg-red-700 text-gray-100  rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500  py-2 px-5 "
+              className="  w-full flex  justify-center bg-red-500 hover:bg-red-600 text-gray-100  rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500  py-2 px-5 "
             >
               Delete
             </button>
@@ -78,7 +78,7 @@ const BlogCard = ({ data, action, deleteHandler, publishedHandler }: any) => {
 
             <button
               onClick={() => deleteHandler(data?.id)}
-              className="w-full flex justify-center bg-red-500 hover:bg-red-700 text-gray-100  rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500 py-2 px-5"
+              className="w-full flex justify-center bg-red-500 hover:bg-red-600 text-gray-100  rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500 py-2 px-5"
             >
               Delete
             </button>
@@ -98,7 +98,7 @@ const BlogCard = ({ data, action, deleteHandler, publishedHandler }: any) => {
 
             <button
               onClick={() => deleteHandler(data?.id)}
-              className="w-full flex justify-center bg-red-500 hover:bg-red-700 text-gray-100  rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500 py-2 px-5"
+              className="w-full flex justify-center bg-red-500 hover:bg-red-600 text-gray-100  rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500 py-2 px-5"
             >
               Delete
             </button>

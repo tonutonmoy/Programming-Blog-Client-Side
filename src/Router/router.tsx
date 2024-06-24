@@ -16,6 +16,7 @@ import Profile from "../Component/Dashboard/Profile/Profile";
 import AllBlogs from "../Component/Blog/AllBlogs/AllBlogs";
 import DashboardLayout from "../Component/Dashboard/DashboardLayout";
 import Dashboard from "../Component/Dashboard/Dashboard";
+import About from "../Component/About/About";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,7 @@ const router = createBrowserRouter([
         ),
       },
       { path: "allBlogs", element: <AllBlogs /> },
+      { path: "about", element: <About /> },
       { path: "blogDetails/:id", element: <BlogDetails /> },
     ],
   },
