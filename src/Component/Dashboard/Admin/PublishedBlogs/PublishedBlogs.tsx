@@ -46,7 +46,7 @@ const PublishedBlogs = () => {
     return null;
   }
 
-  console.log(data?.posts, "ll");
+
 
   const deleteHandler = async (postId: string) => {
     const deleteData = await DeleteBlog({
@@ -66,7 +66,7 @@ const PublishedBlogs = () => {
 
   return (
     <Container>
-      <section className=" grid md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-20 my-20">
+      <section className=" grid md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-2 3xl:grid-cols-3 gap-20 my-20">
         {data?.posts?.map((a: any) => (
           <BlogCard
             key={a?.id}

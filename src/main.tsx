@@ -14,12 +14,10 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import { getUserInfo } from "./Utils/auth.helper";
 
-// const client = new ApolloClient({
-//   uri: "http://localhost:4000/",
-//   cache: new InMemoryCache(),
-// });
+
 const httpLink = createHttpLink({
-  uri: "http://localhost:4000/",
+    // uri: "http://localhost:4000/graphql",
+  uri: "https://programming-blog-server-side-production.up.railway.app/graphql", 
 });
 
 const authLink = setContext((_, { headers }) => {
