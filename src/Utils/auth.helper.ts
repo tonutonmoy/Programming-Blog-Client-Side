@@ -26,3 +26,4 @@ export const isLoggedIn = () => {
   const authToken = getUserInfo();
   return !!authToken;
 };
+ 

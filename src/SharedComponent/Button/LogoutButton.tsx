@@ -2,8 +2,8 @@ import { removeFromLocalStorage } from "../../Utils/auth.helper";
 import { RiLogoutCircleLine } from "react-icons/ri";
 
 const LogoutButton = () => {
-  const handler = () => {
-    removeFromLocalStorage();
+  const handler = async() => {
+   await removeFromLocalStorage();
     window.location.reload();
   };
   return (
