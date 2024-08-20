@@ -1,11 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useForm } from "react-hook-form";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css"; // Import the Quill CSS for proper styling
 
 import { cloudINary } from "../../../Utils/cloudinary";
 
 import { Toaster, toast } from "sonner";
 
 import { gql, useMutation } from "@apollo/client";
+import { useState } from "react";
 
 const addPostGQL = gql`
   mutation AddPost($post: PostInput!) {
@@ -30,17 +33,24 @@ const CreateBlog: React.FC = () => {
     formState: { errors },
   } = useForm<FormValues>();
   const [addPost] = useMutation(addPostGQL);
+  const [detail, setDetail] = useState("");
 
   const onSubmit = async (data: FormValues) => {
     const image: any = await cloudINary(data?.image[0]);
+    if (!detail) {
+    
+      return toast.error("Detail is missing");
+    }
 
     if (image === null) {
       console.log("null");
       return toast.error("image not uploaded");
+      
     }
     if (image) {
       console.log(image, "i");
       data.image = image;
+      data.content= detail
       console.log(data);
 
       const postData = await addPost({
@@ -69,8 +79,8 @@ const CreateBlog: React.FC = () => {
         <div className="flex justify-center self-center z-10 w-full">
           <div className="px-12 pt-12 pb-7 bg-white mx-auto rounded-2xl w-[100%] md:w-[90%] lg:w-[90%] xl:w-[70%] 2xl:w-[60%]  ">
             <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="grid gap-6 mb-6 md:grid-cols-2">
-                <section className=" space-y-5">
+              <div className="grid gap-6 mb-6 md:grid-cols-1">
+                <section className=" grid gap-6 mb-6 md:grid-cols-2 items-center">
                   <div>
                     <label
                       htmlFor="title"
@@ -111,26 +121,23 @@ const CreateBlog: React.FC = () => {
                   </div>
                 </section>
                 <section>
-                  <label
-                    htmlFor="content"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >
-                    Content
-                  </label>
-                  <textarea
-                    id="content"
-                    {...register("content", {
-                      required: "Content is required",
-                    })}
-                    className="bg-gray-50 border border-gray-300 h-full text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Enter your content"
-                  />
-                  {errors.content && (
-                    <span className="text-red-600">
-                      {errors.content.message}
-                    </span>
-                  )}
-                </section>
+          <div className="text-center my-5">
+            <p className="text-[18px] font-[500] mb-3">Detail</p>
+            <ReactQuill
+              value={detail}
+              onChange={setDetail}
+              theme="snow"
+              placeholder="Enter your content"
+              style={{
+                height: "250px",
+                color: "black",
+                background: "white",
+                width: "90%",
+                margin: "auto",
+              }} // Set the height of the editor
+            />
+          </div>
+        </section>
               </div>
               <div className=" mt-20">
                 <button

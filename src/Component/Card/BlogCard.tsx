@@ -1,5 +1,6 @@
 import moment from "moment";
 import { Link } from "react-router-dom";
+import "./Blog.css"; // Import the custom CSS file
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const BlogCard = ({ data, action, deleteHandler, publishedHandler }: any) => {
@@ -17,7 +18,7 @@ const BlogCard = ({ data, action, deleteHandler, publishedHandler }: any) => {
   }
 
   return (
-    <div className="block space-x-0   my-5  shadow-xl    ">
+    <div className="block space-x-0   my-5  shadow-xl   overflow-auto ">
       <img
         src={data?.image}
         className="rounded h-[300px] w-full"
@@ -26,8 +27,9 @@ const BlogCard = ({ data, action, deleteHandler, publishedHandler }: any) => {
       <div className="py-4   bg-white px-5">
         <section className="pt-4  pl-0 ">
           <h2 className="font-bold text-2xl text-gray-800">{data?.title}</h2>
-          <p className="text-gray-700 mt-2 h-[220px] md:h-[200px] lg:h-[110px] xl:h-[120px] 2xl:h-[100px]">
-            {data?.content.slice(0, 250)} ...
+          <p className="text-gray-700 mt-2 h-[210px] md:h-[210px] lg:h-[110px] xl:h-[110px] 2xl:h-[110px] blog-text blog-base leading-relaxed excerpt-text overflow-hidden "
+          dangerouslySetInnerHTML={{ __html: data?.content.slice(0, 250) }}>
+           
           </p>
         </section>
         <section className=" flex  justify-around items-center mt-5">

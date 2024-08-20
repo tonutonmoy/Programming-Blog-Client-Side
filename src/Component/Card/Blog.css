@@ -1,0 +1,163 @@
+/* Blog.css */
+
+/* Add styles for the HTML content */
+.blog-base {
+    font-size: 1rem; /* Default text size */
+    line-height: 1.6; /* Line height for readability */
+  }
+  
+  /* Style for links inside the content */
+  .blog-text a {
+    color: #60a5fa; /* Tailwind blue-400 */
+    text-decoration: underline;
+  }
+  
+  .blog-text a:hover {
+    color: #2563eb; /* Tailwind blue-600 */
+  }
+  
+  /* Additional styles for elements */
+  .blog-text h1,
+  .blog-text h2,
+  .blog-text h3,
+  .blog-text h4,
+  .blog-text h5,
+  .blog-text h6 {
+    margin: 10px 0;
+    padding: 10px 0;
+  }
+  .blog-text h1 strong,
+  .blog-text h2 strong,
+  .blog-text h3 strong,
+  .blog-text h4 strong,
+  .blog-text h5 strong,
+  .blog-text h6 strong {
+    margin: 10px 0;
+    padding: 10px 0;
+  }
+  .blog-text p {
+    margin: 10px 0;
+    padding: 10px 0;
+  }
+  
+  .blog-text ul,
+  .blog-text ol {
+    margin: 10px 0;
+    padding: 10px 0;
+  }
+  
+  .blog-text ul li,
+  .blog-text ol li {
+    margin: 10px 0;
+    padding: 10px 0;
+  }
+  
+  .blog-text blockquote {
+    border-left: 4px solid #2563eb; /* Tailwind blue-600 */
+    background-color: #1f2937; /* Tailwind gray-800 */
+    margin: 10px 0;
+    padding: 10px 0;
+  }
+  
+  /* Style for images inside content */
+  .blog-text img {
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
+    padding: 10px 0;
+  }
+  
+  /* Style for tables inside content */
+  .blog-text table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    padding: 10px 0;
+  }
+  
+  .blog-text th,
+  .blog-text td {
+    margin: 10px 0;
+    padding: 10px 0;
+    border: 1px solid #374151; /* Tailwind gray-700 */
+  }
+  
+  /* Ensure that text content does not overflow */
+  .excerpt-text {
+    /* overflow: hidden; */
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* Adjust number of lines */
+    -webkit-box-orient: vertical;
+  }
+  
+  .blog-text {
+    margin: 10px 0;
+    padding: 10px 0;
+    margin: 5px 0; /* Margin for spacing */
+    max-width: 100%;
+    overflow-wrap: break-word; /* Break long words */
+  }
+  
+  /* Blog.css */
+  
+  /* Add styles for the HTML content */
+  .blog-detail-base {
+    font-size: 1rem; /* Default text size */
+    line-height: 1.6; /* Line height for readability */
+  }
+  
+  /* Style for links inside the content */
+  .blog-detail-text a {
+    color: #60a5fa; /* Tailwind blue-400 */
+    text-decoration: underline;
+  }
+  
+  .blog-detail-text a:hover {
+    color: #2563eb; /* Tailwind blue-600 */
+  }
+  
+  /* Additional styles for elements */
+  .blog-detail-text h1,
+  .blog-detail-text h2,
+  .blog-detail-text h3,
+  .blog-detail-text h4,
+  .blog-detail-text h5,
+  .blog-detail-text h6 {
+    margin: 30px 0;
+    padding: 30px 0;
+  }
+  .blog-detail-text h1 strong,
+  .blog-detail-text h2 strong,
+  .blog-detail-text h3 strong,
+  .blog-detail-text h4 strong,
+  .blog-detail-text h5 strong,
+  .blog-detail-text h6 strong {
+    margin: 30px 0;
+    padding: 30px 0;
+  }
+  .blog-detail-text p {
+    margin: 30px 0;
+    padding: 30px 0;
+  }
+  
+  .blog-detail-text ul,
+  .blog-detail-text ol {
+    margin: 30px 0;
+    padding: 30px 0;
+  }
+  
+  .blog-detail-text ul li,
+  .blog-detail-text ol li {
+    margin: 30px 0;
+    padding: 30px 0;
+  }
+  
+  .blog-detail-text blockquote {
+    margin: 30px 0;
+    padding: 30px 0;
+    border-left: 4px solid #2563eb; /* Tailwind blue-600 */
+    background-color: #1f2937; /* Tailwind gray-800 */
+    margin: 30px 0;
+  }
+  

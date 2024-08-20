@@ -6,6 +6,9 @@ import { gql, useMutation, useQuery } from "@apollo/client";
 import { Toaster, toast } from "sonner";
 import { cloudINary } from "../../../../Utils/cloudinary";
 import Loading from "../../../../SharedComponent/Loading/Loading";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css"; // Import the Quill CSS for proper styling
+import { useEffect, useState } from "react";
 
 const BlogDetailsGQL = gql`
   query SinglePostDetails($postId: ID!) {
@@ -42,6 +45,13 @@ const UpdateBlogs: React.FC = () => {
   });
   const [updateBlog] = useMutation(UpdateBlogGQL);
   const { register, handleSubmit } = useForm<FormValues>();
+  const [detail, setDetail] = useState("");
+  console.log(data?.singlePost?.content,'llllll')
+  
+  useEffect(() => {
+    setDetail(data?.singlePost?.content);
+  }, [data]);
+
 
   const onSubmit = async (formData: FormValues) => {
     console.log(formData, "tonu");
@@ -61,6 +71,8 @@ const UpdateBlogs: React.FC = () => {
     }
 
     console.log(formData, "from data");
+
+    formData.content= detail
 
     const updateData = await updateBlog({
       variables: { postId, post: formData },
@@ -140,20 +152,23 @@ const UpdateBlogs: React.FC = () => {
                     </div>
                   </section>
                   <section>
-                    <label
-                      htmlFor="content"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                    >
-                      Content
-                    </label>
-                    <textarea
-                      id="content"
-                      defaultValue={data?.singlePost?.content}
-                      {...register("content")}
-                      className="bg-gray-50 border border-gray-300 h-[200px] md:h-[200px] lg:h-full xl:h-full 2xl:h-full text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      placeholder="Enter your content"
-                    />
-                  </section>
+          <div className="text-center my-5">
+            <p className="text-[18px] font-[500] mb-3">Detail</p>
+            <ReactQuill
+              value={detail}
+              onChange={setDetail}
+              theme="snow"
+              placeholder="Enter your content"
+              style={{
+                height: "250px",
+                color: "black",
+                background: "white",
+                width: "90%",
+                margin: "auto",
+              }} // Set the height of the editor
+            />
+          </div>
+        </section>
                 </section>
                 <section className="mt-20 ">
                   <button

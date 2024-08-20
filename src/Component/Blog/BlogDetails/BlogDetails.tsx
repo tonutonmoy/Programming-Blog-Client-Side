@@ -67,7 +67,7 @@ const BlogDetails = () => {
 
         <div className="flex flex-col xl:flex-row lg:space-x-12">
           <div className="px-4 lg:px-0 mt-12 text-gray-700 text-lg leading-relaxed w-full xl:w-3/4">
-            <p className="pb-6">{data?.singlePost?.content}</p>
+            <p className="pb-6 blog-detail-text blog-detail-base leading-detail-relaxed mb-4 excerpt-detail-text xl:w-[900px] 2xl:w-[1000px]  3xl:w-[1200px] h-screen overflow-auto" dangerouslySetInnerHTML={{ __html: data?.singlePost?.content }}></p>
           </div>
 
           <div className="w-full  xl:w-1/4  m-auto mt-12 max-w-screen-sm  shadow-xl  ">
